@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sociala medier RBU 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F4F2EE}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<style>
+:root{
+  --ink:#1D1D1B;
+  --paper:#F4F4F4;
+  --surface:#FFFFFF;
+  --line:#D8D8D8;
+  --line-soft:#EDEDED;
+  --text:#1D1D1B;
+  --text-2:#575756;
+  --text-3:#83837F;
+  --rbu:#FE370F;
+  --rbu-soft:#FFE7E0;
+  --c-fb:#006093;
+  --c-ig:#8A6A00;
+  --c-li:#1B7A61;
+  --gul:#FFC800;
+  --pos:#1B7A61;
+  --neg:#B33A1A;
+  --dark-ground:#1D1D1B;
+  --dark-ground-2:#2B2B29;
+  --on-dark:#F4F4F4;
+  --on-dark-2:#B0B0AE;
+  --shadow:0 1px 2px rgba(28,28,26,.06);
+  --radius:10px;
+  --maxw:1140px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141413;
+    --surface:#1F1F1D;
+    --line:#3A3A37;
+    --line-soft:#2C2C2A;
+    --text:#EFEFED;
+    --text-2:#B4B4B1;
+    --text-3:#8A8A86;
+    --rbu:#FF6B47;
+    --rbu-soft:#3A1509;
+    --c-fb:#4FA6D8;
+    --c-ig:#E0A82E;
+    --c-li:#3FC7A3;
+    --gul:#FFD34D;
+    --pos:#3FC7A3;
+    --neg:#FF8F6B;
+    --dark-ground:#121211;
+    --dark-ground-2:#1F1F1D;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141413;
+  --surface:#1F1F1D;
+  --line:#3A3A37;
+  --line-soft:#2C2C2A;
+  --text:#EFEFED;
+  --text-2:#B4B4B1;
+  --text-3:#8A8A86;
+  --rbu:#FF6B47;
+  --rbu-soft:#3A1509;
+  --c-fb:#4FA6D8;
+  --c-ig:#E0A82E;
+  --c-li:#3FC7A3;
+  --gul:#FFD34D;
+  --pos:#3FC7A3;
+  --neg:#FF8F6B;
+  --dark-ground:#121211;
+  --dark-ground-2:#1F1F1D;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--text);
+  font-family:"Raleway","Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:"Raleway","Helvetica Neue",Arial,sans-serif;text-wrap:balance;margin:0;letter-spacing:-.012em;font-weight:700}
+h2{font-size:1.6rem;font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+a{color:var(--rbu)}
+:focus-visible{outline:2.5px solid var(--rbu);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px}
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-3);
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--dark-ground);color:var(--on-dark);padding-block:44px 40px}
+.hero .eyebrow{color:var(--on-dark-2)}
+.hero h1{font-size:clamp(2rem,5.2vw,3.1rem);line-height:1.05;font-weight:700;margin-top:14px}
+.hero h1 .per{display:block;color:var(--rbu)}
+.hero .sub{color:var(--on-dark-2);margin-top:14px;max-width:60ch;font-size:1.02rem}
+.hero-foot{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+  padding-top:18px;border-top:1px solid rgba(242,239,233,.16);
+  font-size:.85rem;color:var(--on-dark-2)
+}
+.hero-foot b{color:var(--on-dark);font-weight:600}
+
+/* ---------- controls ---------- */
+.controls{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.controls-inner{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;padding-block:12px}
+.ctrl-group{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ctrl-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.chip{
+  font:inherit;font-size:.88rem;font-weight:600;
+  border:1px solid var(--line);background:var(--surface);color:var(--text-2);
+  padding:5px 12px;border-radius:999px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:border-color .12s,color .12s,background .12s;
+}
+.chip:hover{border-color:var(--text-3);color:var(--text)}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.chip[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:var(--paper)}
+select{
+  font:inherit;font-size:.9rem;font-weight:600;color:var(--text);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:6px 10px;cursor:pointer;
+}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:var(--text-2);cursor:pointer;user-select:none}
+.switch input{accent-color:var(--rbu);width:16px;height:16px;cursor:pointer}
+.hint{
+  position:relative;display:inline-grid;place-items:center;flex:none;
+  width:17px;height:17px;border-radius:50%;margin-left:5px;cursor:help;
+  border:1px solid var(--line);background:var(--surface);color:var(--text-3);
+  font-size:.68rem;font-weight:700;line-height:1;font-style:normal;
+}
+.hint:hover{border-color:var(--text-3);color:var(--text-2)}
+.hint::after{
+  content:attr(data-tip);
+  position:absolute;top:calc(100% + 9px);left:50%;transform:translateX(-50%);
+  width:270px;max-width:72vw;z-index:40;
+  background:var(--dark-ground);color:var(--on-dark);
+  font-size:.82rem;font-weight:400;line-height:1.45;text-align:left;
+  padding:10px 12px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.22);
+  opacity:0;visibility:hidden;transition:opacity .12s;pointer-events:none;
+}
+.hint:hover::after,.hint:focus::after,.hint:focus-visible::after{opacity:1;visibility:visible}
+@media (max-width:520px){ .hint::after{left:auto;right:0;transform:none} }
+
+/* ---------- sections ---------- */
+section{padding-block:38px;scroll-margin-top:76px}
+section + section{border-top:1px solid var(--line-soft)}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sec-note{color:var(--text-2);font-size:.95rem;max-width:72ch;margin-bottom:22px}
+
+/* ---------- kpi ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.kpi .k-lab{font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-3)}
+.kpi .k-val{
+  font-family:"Raleway","Helvetica Neue",Arial,sans-serif;font-weight:700;
+  font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.1;margin-top:6px;
+  font-variant-numeric:tabular-nums;color:var(--kc,var(--text));
+}
+.kpi .k-meta{font-size:.85rem;color:var(--text-2);margin-top:4px}
+.delta{font-weight:700;font-variant-numeric:tabular-nums}
+.delta.up{color:var(--pos)}
+.delta.down{color:var(--neg)}
+.delta.flat{color:var(--text-3)}
+
+/* ---------- chart ---------- */
+.chart-card{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-top:20px}
+.chart-top{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--text-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+#chartBox{width:100%;touch-action:pan-y}
+#chartBox svg{display:block;width:100%;height:auto}
+.chart-hint{font-size:.82rem;color:var(--text-3);margin-top:6px}
+
+.readout{
+  display:grid;grid-template-columns:170px 1fr;gap:0;
+  margin-top:18px;border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;
+  background:var(--surface);
+}
+.readout .r-month{background:var(--dark-ground);color:var(--on-dark);padding:16px 18px}
+.readout .r-month .m-name{font-family:"Raleway","Helvetica Neue",Arial,sans-serif;font-size:1.5rem;font-weight:700;line-height:1.1}
+.readout .r-month .m-sub{font-size:.8rem;color:var(--on-dark-2);margin-top:4px}
+.readout .r-body{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.r-vals{display:flex;flex-wrap:wrap;gap:10px 22px}
+.r-val{min-width:110px}
+.r-val .rv-lab{font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+.r-val .rv-num{font-family:"Raleway","Helvetica Neue",Arial,sans-serif;font-size:1.35rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.r-comment{font-size:.93rem;color:var(--text-2);border-left:3px solid var(--rbu);padding-left:12px;max-width:78ch}
+.r-comment b{color:var(--text);font-weight:600}
+
+/* ---------- table ---------- */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line-soft);border-radius:var(--radius);background:var(--surface);margin-bottom:16px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+caption{
+  display:table-caption;caption-side:top;
+  text-align:left;padding:14px 16px 10px;font-weight:700;font-size:.95rem;color:var(--text);
+}
+caption .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+th,td{padding:8px 12px;text-align:right;border-top:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left;font-variant-numeric:normal}
+thead th{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);font-weight:600;border-top:none}
+tbody th{font-weight:600;color:var(--text)}
+tbody tr:hover{background:var(--line-soft)}
+td.na{color:var(--text-3)}
+.tot{font-weight:700;background:color-mix(in srgb,var(--line-soft) 60%,transparent)}
+
+/* ---------- compare ---------- */
+.cmp{display:flex;flex-direction:column;gap:2px;margin-top:18px}
+.cmp-row{display:grid;grid-template-columns:150px 1fr 108px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-soft)}
+.cmp-row:last-child{border-bottom:none}
+.cmp-name{font-weight:600;font-size:.92rem}
+.cmp-bars{display:flex;flex-direction:column;gap:5px}
+.bar{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--text-2)}
+.bar .track{flex:1;height:11px;background:var(--line-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;border-radius:3px}
+.bar .num{width:72px;text-align:right;font-variant-numeric:tabular-nums;color:var(--text)}
+.bar .tag{width:62px;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+.cmp-delta{text-align:right;font-family:"Raleway","Helvetica Neue",Arial,sans-serif;font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ---------- generic cards ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--text-2);font-size:.94rem}
+.card p + p{margin-top:10px}
+.metrics4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:999px;
+  background:var(--rbu-soft);color:var(--rbu);
+}
+.dark-card{background:var(--dark-ground);color:var(--on-dark);border:none}
+.dark-card h3{color:#FF7A4F;letter-spacing:-.01em}
+.dark-card p{color:#DAD6CD}
+.dark-card p b{color:#FFFFFF;font-weight:600}
+.dark-card .pill{background:rgba(255,122,79,.18);color:#FF9877}
+.quote{
+  font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-style:italic;
+  color:var(--text);border-left:3px solid var(--rbu);padding-left:14px;margin-top:14px;max-width:60ch;
+}
+ol.recs{margin:16px 0 0;padding:0;list-style:none;counter-reset:r;display:flex;flex-direction:column;gap:10px}
+ol.recs li{
+  counter-increment:r;display:grid;grid-template-columns:28px 1fr;gap:12px;
+  font-size:.96rem;color:var(--text-2);
+}
+ol.recs li::before{
+  content:counter(r);
+  font-family:"Raleway","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:.9rem;
+  width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;
+  display:grid;place-items:center;margin-top:1px;
+}
+ul.plain{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+ul.plain li{padding-left:18px;position:relative;color:var(--text-2);font-size:.96rem}
+ul.plain li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--rbu)}
+/* ---------- statusläge ---------- */
+.status-form{
+  margin-top:18px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);
+}
+.sf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.sf-field{display:flex;flex-direction:column;gap:5px}
+.sf-field label{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.sf-field input{
+  font:inherit;font-size:1rem;color:var(--text);background:var(--paper);
+  border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%;
+  font-variant-numeric:tabular-nums;
+}
+.sf-field input:focus{border-color:var(--rbu)}
+.kpi .k-stamp{font-size:.8rem;color:var(--text-3);margin-top:6px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--pos);display:inline-block}
+
+/* ---------- export ---------- */
+.exp-grid{display:grid;grid-template-columns:1.1fr 1.4fr 1.1fr;gap:22px;margin-top:18px}
+.exp-field{display:flex;flex-direction:column;gap:9px}
+.exp-field > .ctrl-label{margin-bottom:1px}
+.checks{display:flex;flex-direction:column;gap:7px}
+.month-chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip.sm{padding:4px 11px;font-size:.84rem}
+.linkbtn{
+  background:none;border:none;padding:0;font:inherit;font-size:.82rem;font-weight:600;
+  color:var(--rbu);cursor:pointer;text-decoration:underline;text-underline-offset:3px;
+}
+.exp-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+.btn{
+  font:inherit;font-size:.92rem;font-weight:700;cursor:pointer;
+  border-radius:8px;padding:9px 16px;border:1px solid transparent;
+  transition:opacity .12s,border-color .12s;
+}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{opacity:.9}
+.btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text-3)}
+.exp-status{font-size:.88rem;color:var(--text-2);min-height:1.3em}
+.exp-status.err{color:var(--neg)}
+.exp-status.ok{color:var(--pos)}
+.preview-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-top:24px;margin-bottom:8px}
+.preview-head h3{font-size:.98rem}
+.preview-meta{font-size:.84rem;color:var(--text-3);font-variant-numeric:tabular-nums}
+#previewBox table{min-width:520px;font-size:.86rem}
+#previewBox td.na{color:var(--text-3)}
+details.raw{margin-top:14px}
+details.raw summary{cursor:pointer;font-size:.86rem;font-weight:600;color:var(--text-2)}
+details.raw textarea{
+  width:100%;margin-top:10px;min-height:150px;resize:vertical;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;line-height:1.5;
+  color:var(--text);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px;
+}
+footer{background:var(--dark-ground);color:var(--on-dark-2);padding-block:26px;font-size:.85rem}
+footer b{color:var(--on-dark);font-weight:600}
+
+@media (max-width:900px){
+  .kpis,.metrics4{grid-template-columns:1fr 1fr}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .readout{grid-template-columns:1fr}
+  .cmp-row{grid-template-columns:1fr;gap:6px}
+  .cmp-delta{text-align:left}
+}
+@media (max-width:520px){
+  .kpis,.metrics4{grid-template-columns:1fr}
+  .controls{position:static}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Rapport och insikter &nbsp;·&nbsp; Interaktiv trenduppföljning</p>
+    <h1>Helhetsrapport RBU<span class="per">Januari–augusti 2026</span></h1>
+    <p class="sub">Facebook, Instagram och LinkedIn i samma vy. Välj kanal och mätetal, så räknas allt om direkt.</p>
+    <div class="hero-foot">
+      <span><b>3 kanaler</b> · Facebook, Instagram, LinkedIn</span>
+      <span><b>8 månader</b> · januari–augusti 2026</span>
+      <span><b>Källa</b> · Meta Business Suite, LinkedIn Analytics, Later</span>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap controls-inner">
+    <div class="ctrl-group">
+      <span class="ctrl-label" id="lab-kanal">Kanal</span>
+      <div role="group" aria-labelledby="lab-kanal" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="chip" id="ch-all" data-ch="all" aria-pressed="true">Alla</button>
+        <button class="chip" data-ch="fb" aria-pressed="false"><i class="dot" style="background:var(--c-fb)"></i>Facebook</button>
+        <button class="chip" data-ch="ig" aria-pressed="false"><i class="dot" style="background:var(--c-ig)"></i>Instagram</button>
+        <button class="chip" data-ch="li" aria-pressed="false"><i class="dot" style="background:var(--c-li)"></i>LinkedIn</button>
+      </div>
+    </div>
+    <div class="ctrl-group">
+      <label class="ctrl-label" for="metric">Mätetal</label>
+      <select id="metric">
+        <option value="visningar">Visningar</option>
+        <option value="rackvidd">Räckvidd / unika</option>
+        <option value="interaktioner">Interaktioner</option>
+        <option value="klick">Klick</option>
+        <option value="foljare">Nya följare</option>
+        <option value="besok">Besök</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label class="switch"><input type="checkbox" id="indexed"> Index (jan = 100)</label><span class="hint" tabindex="0" role="note" aria-label="Vad index betyder: januari sätts till 100 för varje kanal och övriga månader räknas om mot den. 200 är dubbelt så mycket som i januari. Gör att små och stora kanaler kan jämföras." data-tip="Januari sätts till 100 för varje kanal, övriga månader räknas om mot den. 200 betyder dubbelt så mycket som i januari. Bra för att jämföra hur snabbt kanalerna växer, oavsett storlek.">i</span>
+      <label class="switch"><input type="checkbox" id="nojuly"> Räkna bort juli (kansliet stängt)</label>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="status">
+    <div class="sec-head"><h2>Statusläge just nu</h2><span class="pill" id="statusPill">Delas med teamet</span></div>
+    <p class="sec-note" id="statusNote">Totalt antal följare. Ni fyller i själva, och alla i teamet ser ändringen direkt.</p>
+    <div class="kpis" id="statusCards"></div>
+    <p class="sec-note" style="margin-top:14px">Siffrorna är en avläsning den 16 september 2026. I den här versionen går de inte att ändra.</p>
+  </section>
+
+  <section id="oversikt">
+    <div class="sec-head"><h2 id="kpiTitle">Visningar, alla kanaler</h2><span class="pill" id="kpiScope">Summa tre kanaler</span></div>
+    <p class="sec-note" id="kpiNote"></p>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="chart-card">
+      <div class="chart-top">
+        <div>
+          <h3 id="chartTitle">Utveckling över tid</h3>
+          <p class="chart-hint" id="chartSub">Januari–augusti 2026</p>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div id="chartBox" tabindex="0" role="img" aria-label="Linjediagram över perioden januari till augusti 2026. Använd vänster- och högerpil för att stega mellan månader."></div>
+      <p class="chart-hint">Peka eller använd piltangenterna för att läsa av en månad.</p>
+    </div>
+
+    <div class="readout" id="readout"></div>
+  </section>
+
+  <section id="manad">
+    <div class="sec-head"><h2>Månad för månad</h2></div>
+    <p class="sec-note">Räckvidd och unika visningar har inget totaltal, eftersom samma person kan nås flera månader.</p>
+    <div id="tables"></div>
+  </section>
+
+  <section id="export">
+    <div class="sec-head"><h2>Hämta ut siffror</h2><span class="pill">CSV för Excel</span></div>
+    <p class="sec-note">Välj kanaler, månader och nyckeltal och ladda ner urvalet. CSV öppnas direkt i svensk Excel.</p>
+
+    <div class="exp-grid">
+      <div class="exp-field">
+        <span class="ctrl-label" id="lab-exp-ch">Kanaler</span>
+        <div class="checks" role="group" aria-labelledby="lab-exp-ch">
+          <label class="switch"><input type="checkbox" class="exp-ch" id="expch-fb" value="fb" checked> Facebook</label>
+          <label class="switch"><input type="checkbox" class="exp-ch" id="expch-ig" value="ig" checked> Instagram</label>
+          <label class="switch"><input type="checkbox" class="exp-ch" id="expch-li" value="li" checked> LinkedIn</label>
+        </div>
+      </div>
+
+      <div class="exp-field">
+        <span class="ctrl-label" id="lab-exp-m">Månader</span>
+        <div class="month-chips" id="expMonths" role="group" aria-labelledby="lab-exp-m"></div>
+        <div style="display:flex;gap:14px">
+          <button type="button" class="linkbtn" id="expAllM">Markera alla</button>
+          <button type="button" class="linkbtn" id="expNoM">Avmarkera alla</button>
+        </div>
+      </div>
+
+      <div class="exp-field">
+        <span class="ctrl-label" id="lab-exp-k">Nyckeltal</span>
+        <div class="checks" role="group" aria-labelledby="lab-exp-k">
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-foljare" value="foljare" checked> Nya följare</label>
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-besok" value="besok" checked> Besök</label>
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-visningar" value="visningar" checked> Visningar</label>
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-rackvidd" value="rackvidd" checked> Räckvidd / unika</label>
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-interaktioner" value="interaktioner" checked> Interaktioner</label>
+          <label class="switch"><input type="checkbox" class="exp-met" id="expmet-klick" value="klick" checked> Klick</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-field" style="margin-top:20px;max-width:420px">
+      <span class="ctrl-label" id="lab-exp-l">Uppställning</span>
+      <div class="checks" role="radiogroup" aria-labelledby="lab-exp-l">
+        <label class="switch"><input type="radio" name="explayout" id="explay-months" value="months" checked> En rad per månad</label>
+        <label class="switch"><input type="radio" name="explayout" id="explay-metrics" value="metrics"> En rad per nyckeltal, månader som kolumner</label>
+      </div>
+    </div>
+
+    <div class="exp-actions">
+      <button type="button" class="btn btn-primary" id="expDownload" hidden>Ladda ner CSV</button>
+      <button type="button" class="btn btn-ghost" id="expPdf" hidden>Ladda ner PDF</button>
+      <button type="button" class="btn btn-ghost" id="expPptx" hidden>Ladda ner PowerPoint</button>
+      <button type="button" class="btn btn-ghost" id="expCopy">Kopiera tabellen</button>
+      <span class="exp-status" id="expStatus" role="status" aria-live="polite"></span>
+    </div>
+    <p class="sec-note" style="margin-top:10px">PDF och PowerPoint följer urvalet, med nyckeltal som rader. PowerPoint går att redigera.</p>
+
+    <div class="preview-head">
+      <h3>Förhandsvisning</h3>
+      <span class="preview-meta" id="expMeta"></span>
+    </div>
+    <div class="tbl-scroll" id="previewBox"></div>
+
+    <details class="raw">
+      <summary>Visa som text att markera och kopiera manuellt</summary>
+      <textarea id="expRaw" readonly spellcheck="false" aria-label="Exporterad tabell som text"></textarea>
+    </details>
+
+    <p class="sec-note" style="margin-top:18px">Streck betyder att talet saknas i underlaget.</p>
+  </section>
+
+
+  <section id="minuter">
+    <div class="sec-head"><h2>Maj–juni: kampanjen Minuter tar fart</h2></div>
+    <p class="sec-note">Första inlägget publicerades 25 maj. Med 14 inlägg kring Almedalsveckan mer än fördubblades alla mått på LinkedIn jämfört med april.</p>
+    <div class="metrics4">
+      <div class="kpi"><div class="k-lab">Visningar</div><div class="k-val" style="--kc:var(--pos)">+179 %</div><div class="k-meta">april → juni</div></div>
+      <div class="kpi"><div class="k-lab">Unika visningar</div><div class="k-val" style="--kc:var(--pos)">+123 %</div><div class="k-meta">april → juni</div></div>
+      <div class="kpi"><div class="k-lab">Klick</div><div class="k-val" style="--kc:var(--pos)">+190 %</div><div class="k-meta">april → juni</div></div>
+      <div class="kpi"><div class="k-lab">Engagemang</div><div class="k-val" style="--kc:var(--pos)">+161 %</div><div class="k-meta">april → juni</div></div>
+    </div>
+    <p class="sec-note" style="margin-top:14px">Kampanjen fortsatte under hösten: LinkedIn-visningarna i augusti var 3 967, det högsta i perioden.</p>
+    <div class="grid2">
+      <div class="card">
+        <span class="pill">Bästa innehållet</span>
+        <h3 style="margin-top:10px">Filmklipp och medlemsvittnesmål</h3>
+        <p>Inlägget den 28 maj, ett filmklipp om assistansbedömningar av barns påklädning, var det starkaste på LinkedIn under januari till juli: <b>2 174 visningar, 130 klick, 61 gillamarkeringar och 12 delningar</b>, långt över snittet. Augustis inlägg är ännu inte genomgångna ett och ett, så toppen kring 16 augusti kan dölja ett starkare inlägg.</p>
+        <p class="quote">”…räknas ofta bara de mest integritetsnära delarna av påklädningen som grundläggande behov…”</p>
+      </div>
+      <div class="card dark-card">
+        <h3>Länkklicken som Meta inte ser</h3>
+        <p>Metas mått räknar bara klick på länkar i själva inlägget, inte via bio-länken. Därför faller länkklicken efter mars trots att allt annat växer.</p>
+        <p>Laters statistik för <b>linkin.bio/rburiks</b>, januari till augusti: <b>473 sidvisningar</b>, <b>261 knappklick</b> och <b>160 inläggsklick</b>.</p>
+        <p>Augusti står ensam för en fjärdedel av det. Klickfrekvensen steg samtidigt till 46 %, mot 28 % tidigare under året, och toppen kom den 17 augusti, dagen efter toppen på Facebook och Instagram.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="linkedin-tillvaxt">
+    <div class="sec-head"><h2>LinkedIn: perioden i sin helhet</h2></div>
+    <p class="sec-note">Avläst direkt för 1 januari till 31 augusti, inte hopräknat från månaderna.</p>
+    <div class="metrics4">
+      <div class="kpi"><div class="k-lab">Följare totalt</div><div class="k-val" style="--kc:var(--c-li)">676</div><div class="k-meta">16 september 2026</div></div>
+      <div class="kpi"><div class="k-lab">Medlemmar nådda</div><div class="k-val" style="--kc:var(--c-li)">8 586</div><div class="k-meta">unika personer, januari–augusti</div></div>
+      <div class="kpi"><div class="k-lab">Klick</div><div class="k-val" style="--kc:var(--c-li)">983</div><div class="k-meta">januari–augusti</div></div>
+      <div class="kpi"><div class="k-lab">Engagemangsfrekvens</div><div class="k-val" style="--kc:var(--c-li)">9,8 %</div><div class="k-meta">snitt januari–augusti</div></div>
+    </div>
+    <p class="sec-note" style="margin-top:16px">Periodens visningar är 15 356 och interaktionerna 519, varav 496 reaktioner, 9 kommentarer och 14 ompubliceringar. LinkedIns egna periodtal ligger något under summan av månaderna i tabellen ovan, eftersom plattformen räknar om över hela intervallet.</p>
+    <p class="sec-note" style="margin-top:10px">Besök på sidan är ännu bara avlästa för januari till juli: 399 sidvisningar och 194 unika besökare, varav 239 via mobil och 160 via dator. Nya följare under samma period: 97.</p>
+    <p class="sec-note" style="margin-top:10px">Av samtliga 676 följare finns 310 i Stockholmsområdet, 57 i Malmö och 45 i Göteborg. Det beskriver följarskaran som helhet, inte de som tillkom under perioden.</p>
+  </section>
+
+  <section id="slutsats">
+    <div class="sec-head"><h2>Samlad slutsats</h2></div>
+    <p class="sec-note">Låg bas i januari och februari, vändning under våren, två toppar: maj–juni och augusti. Augusti är periodens starkaste månad på samtliga tre kanaler. Totalt 1 230 143 visningar januari till augusti.</p>
+    <div class="grid3">
+      <div class="card">
+        <h3>Kanalerna spelar olika roller</h3>
+        <p>Facebook står för volymen, 742 200 visningar. Instagram är nästan ikapp i augusti, 254 202 mot Facebooks 265 500, efter att ha börjat på en tiondel i januari. LinkedIn är minst i volym men störst i relativ tillväxt: visningarna nästan tiodubblades från januari till augusti.</p>
+      </div>
+      <div class="card">
+        <h3>Ett trendskifte, inte en topp</h3>
+        <p>Uppgången sträcker sig över flera månader i rad, inte en enskild viral händelse. Snittet mars till augusti ligger 220 % över snittet januari till februari.</p>
+      </div>
+      <div class="card">
+        <h3>Juli är inte ett trendbrott</h3>
+        <p>Kontoret var stängt under juli. Nedgången i Meta-kanalerna mäter lägre aktivitet, inte att strategin tappat kraft. LinkedIn gick tvärtom sin klickstarkaste månad i juli, 259 klick. I augusti vände samtliga mått kraftigt uppåt igen.</p>
+      </div>
+    </div>
+  </section>
+  <section id="matt">
+    <div class="sec-head"><h2>Vad siffrorna betyder</h2></div>
+    <p class="sec-note">Fem mått följs varje månad. De finns i plattformarnas egen statistik och kostar inget extra att ta fram.</p>
+    <div class="grid3">
+      <div class="card">
+        <h3>Visningar</h3>
+        <p>Hur många gånger innehållet har visats. Samma person kan räknas flera gånger. Trubbigt, men det enda måttet som går att jämföra mellan alla tre kanaler.</p>
+      </div>
+      <div class="card">
+        <h3>Räckvidd</h3>
+        <p>Hur många personer som faktiskt nåtts. Det är det här som svarar mot kännedom om RBU. Talen summeras aldrig över månader, eftersom samma person kan nås i flera av dem.</p>
+      </div>
+      <div class="card">
+        <h3>Interaktioner</h3>
+        <p>Gillamarkeringar, kommentarer och delningar. Visar om innehållet engagerar eller bara passerar förbi. Svårast av måtten att köpa sig till, och därför mest talande.</p>
+      </div>
+      <div class="card">
+        <h3>Klick</h3>
+        <p>Hur många som gick vidare till RBU:s eget material. Det som ligger närmast en faktisk handling av allt plattformarna mäter.</p>
+      </div>
+      <div class="card">
+        <h3>Nya följare</h3>
+        <p>Om räckvidden bygger något som består. En följare går att nå igen nästa månad, utan att det kostar något.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Källor:</b> Meta Business Suite, Resultat-vyn, Facebook och Instagram, 1 januari–31 augusti 2026 · LinkedIn Analytics, 1 januari–31 augusti 2026 · Later, Linkin.bio Analytics, @rburiks, 1 januari–31 augusti 2026.</p>
+    <p style="margin-top:6px">Månadssiffrorna avlästa och rapporten uppdaterad 16 september 2026. Följarantalen på Facebook, Instagram och LinkedIn är avlästa samma dag.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js"></script>
+<script>
+(function(){
+  "use strict";
+  var MONTHS = ["Jan","Feb","Mar","Apr","Maj","Jun","Jul","Aug"];
+  var MONTHS_LONG = ["Januari","Februari","Mars","April","Maj","Juni","Juli","Augusti"];
+
+  var CH = {
+    fb:{namn:"Facebook", varf:"--c-fb"},
+    ig:{namn:"Instagram", varf:"--c-ig"},
+    li:{namn:"LinkedIn", varf:"--c-li"}
+  };
+
+  var METRICS = {
+    visningar:{lab:"Visningar", per:{fb:"Visningar", ig:"Visningar (IG-del av totalen)", li:"Visningar"}},
+    rackvidd:{lab:"Räckvidd / unika", per:{fb:"Tittare", ig:"Räckvidd", li:"Unika visningar"}},
+    interaktioner:{lab:"Interaktioner", per:{fb:"Innehållsinteraktioner", ig:"Innehållsinteraktioner", li:"Reaktioner, kommentarer, delningar"}},
+    klick:{lab:"Klick", per:{fb:"Länkklick", ig:"Länkklick", li:"Klick"}},
+    foljare:{lab:"Nya följare", per:{fb:"Följare (nya)", ig:"Följare (nya)", li:null}},
+    besok:{lab:"Besök", per:{fb:"Besök", ig:"Besök", li:null}}
+  };
+  var METRIC_ORDER = ["foljare","besok","visningar","rackvidd","interaktioner","klick"];
+
+  var D = {
+    fb:{
+      foljare:[14,18,17,17,65,137,16,178],
+      besok:[536,629,473,487,1100,1800,738,1800],
+      visningar:[59700,25300,25200,17000,65900,236800,46800,265500],
+      rackvidd:[23600,11500,12600,7700,37400,110000,16000,185100],
+      interaktioner:[532,207,350,343,1600,4100,815,3200],
+      klick:[1300,265,96,22,357,994,116,380]
+    },
+    ig:{
+      foljare:[20,32,22,26,55,119,37,224],
+      besok:[148,168,159,211,560,975,451,953],
+      visningar:[8224,21592,13334,15511,39356,102732,17073,254202],
+      rackvidd:[1500,10000,4200,4800,20600,49500,6500,169500],
+      interaktioner:[192,249,230,381,1200,2500,455,4700],
+      klick:[17,141,101,0,23,42,1,12]
+    },
+    li:{
+      foljare:null,
+      besok:null,
+      visningar:[417,704,1062,1152,3400,3218,1999,3967],
+      rackvidd:[210,301,561,619,1913,1379,1179,2690],
+      interaktioner:[7,43,26,47,87,102,67,140],
+      klick:[14,32,28,70,186,203,259,215]
+    }
+  };
+
+  var KOMMENTAR = [
+    null,
+    "Facebook tappar på nästan alla mått, men Instagrams räckvidd och länkklick vänder kraftigt uppåt redan i februari. Tidigt tecken på att förändrat innehåll börjar ge resultat på en kanal innan det syns på den andra.",
+    "Facebooks interaktioner ökar tydligt under mars (+69,1 %), medan Instagram tillfälligt dämpas på flera mått. Ett vanligt mönster när innehåll och publiceringstakt justeras, kanalerna svarar inte alltid i samma takt.",
+    "Instagram fortsätter att accelerera efter mars: följare, besök och interaktioner upp på bred front. Samtidigt faller Instagrams länkklick till noll, vilket sticker ut mot allt annat som växer. Värt att stämma av om något tekniskt låg bakom.",
+    "Den mest dramatiska förändringen i hela perioden. Praktiskt taget varje mått flerdubblas på båda Meta-kanalerna samtidigt, med toppar koncentrerade till slutet av maj. Det första Minuter-inlägget publicerades 25 maj.",
+    "Tillväxten från maj håller i sig och stärks ytterligare, två månader i rad med kraftig, sammanhållen ökning på i praktiken alla mått. Att uppgången sträcker sig över två månader talar för ett verkligt trendskifte.",
+    "Kontoret var stängt under juli, vilket är den sannolika huvudförklaringen till nedgången i Meta-kanalerna. På LinkedIn fortsatte däremot klicken uppåt och engagemangsfrekvensen var periodens högsta, 16,3 %. Instagrams innehållsinteraktioner landade på 455, en nedgång med 82,4 % mot juni.",
+    "Periodens starkaste månad på Meta, med bred marginal. Facebooks visningar ökade 467 % mot juli och Instagrams innehållsinteraktioner 933 %, med en tydlig topp kring 16 augusti på båda kanalerna samtidigt. Mönstret pekar mot ett enskilt inlägg med mycket stor spridning snarare än en jämn uppgång, vilket är värt att kartlägga. Även LinkedIn steg kraftigt: visningarna nära fördubblades mot juli, 3 967 mot 1 999, och reaktioner, kommentarer och delningar gick från 67 till 140. LinkedIn nådde 2 690 unika medlemmar i augusti mot 1 179 i juli, och klicken landade på 215."
+  ];
+
+  var state = { ch:"all", metric:"visningar", indexed:false, nojuly:false, sel:7 };
+
+  var nf = new Intl.NumberFormat("sv-SE");
+  function fmt(v){
+    if(v===null||v===undefined) return "–";
+    return nf.format(Math.abs(v)>=100 ? Math.round(v) : Math.round(v*10)/10);
+  }
+  function pct(v){ return (v>0?"+":"") + nf.format(Math.round(v*10)/10) + " %"; }
+  function css(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function el(tag, cls, txt){ var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined)e.textContent=txt; return e; }
+
+  function series(ch, metric){ var m = D[ch]; return m ? m[metric] : null; }
+  function activeChannels(){ return state.ch==="all" ? ["fb","ig","li"] : [state.ch]; }
+  function lastIdx(){ return MONTHS.length - 1; }
+  function mask(s){ if(!s || !state.nojuly) return s; var c = s.slice(); c[6] = null; return c; }
+
+  function avg(arr, from, to){
+    var s=0,n=0;
+    for(var i=from;i<=to && i<arr.length;i++){ if(arr[i]!==null && arr[i]!==undefined){ s+=arr[i]; n++; } }
+    return n? s/n : null;
+  }
+  function sum(arr, to){
+    var s=0,n=0;
+    for(var i=0;i<=to;i++){ if(arr[i]!==null && arr[i]!==undefined){ s+=arr[i]; n++; } }
+    return n? s : null;
+  }
+
+  /* ---------- KPI ---------- */
+  function renderKpis(){
+    var box = document.getElementById("kpis"); box.innerHTML="";
+    var chs = activeChannels().filter(function(c){ return series(c, state.metric); });
+    var end = lastIdx();
+    var mdef = METRICS[state.metric];
+
+    document.getElementById("kpiTitle").textContent = mdef.lab + ", " + (state.ch==="all" ? "alla kanaler" : CH[state.ch].namn);
+    var scope = document.getElementById("kpiScope");
+    scope.textContent = state.ch==="all" ? (chs.length===3?"Summa tre kanaler":"Summa " + chs.length + " kanaler") : CH[state.ch].namn;
+
+    var note = document.getElementById("kpiNote");
+    var parts = [];
+    chs.forEach(function(c){ parts.push(CH[c].namn + ": " + mdef.per[c]); });
+    var missing = activeChannels().filter(function(c){ return !series(c, state.metric); });
+    if(missing.length) parts.push(missing.map(function(c){return CH[c].namn;}).join(" och ") + ": inte inläst per månad");
+    note.textContent = parts.join(" · ") + (state.nojuly ? " · Juli är exkluderad i snitt och summor." : "");
+
+    if(!chs.length){
+      var warn = el("div","kpi");
+      warn.appendChild(el("div","k-lab","Saknas i underlaget"));
+      warn.appendChild(el("div","k-val","–"));
+      warn.appendChild(el("div","k-meta", mdef.lab + " finns inte per månad för " + CH[state.ch].namn + "."));
+      box.appendChild(warn);
+      return;
+    }
+
+    // combined series across selected channels
+    var comb=[], anyNull=false;
+    for(var i=0;i<MONTHS.length;i++){
+      var s=0,n=0;
+      chs.forEach(function(c){ var v=mask(series(c,state.metric))[i]; if(v!==null&&v!==undefined){s+=v;n++;} else anyNull=true; });
+      comb.push(n?s:null);
+    }
+
+    var total = sum(comb, end);
+    var peakV=-1, peakI=0;
+    for(var j=0;j<=end;j++){ if(comb[j]!==null && comb[j]>peakV){ peakV=comb[j]; peakI=j; } }
+    var pre = avg(comb,0,1), post = avg(comb,2,end);
+    var delta = (pre && post) ? (post-pre)/pre*100 : null;
+
+    var tiles = [
+      {lab:"Perioden totalt", val:fmt(total), meta:"Januari–augusti" + (state.nojuly?", utan juli":"") + (anyNull?" · vissa månader saknas":"")},
+      {lab:"Toppmånad", val:fmt(peakV), meta:MONTHS_LONG[peakI] + " 2026", color:"var(--rbu)"},
+      {lab:"Snitt jan–feb", val:fmt(pre), meta:"per månad, före omställningen"},
+      {lab:"Snitt mars–aug", val:fmt(post), meta:"per månad", delta:delta}
+    ];
+    tiles.forEach(function(t){
+      var d = el("div","kpi");
+      d.appendChild(el("div","k-lab",t.lab));
+      var v = el("div","k-val",t.val); if(t.color) v.style.setProperty("--kc",t.color);
+      d.appendChild(v);
+      var meta = el("div","k-meta");
+      if(t.delta!==null && t.delta!==undefined){
+        var sp = el("span","delta " + (t.delta>1?"up":(t.delta<-1?"down":"flat")), pct(t.delta));
+        meta.appendChild(sp); meta.appendChild(document.createTextNode(" mot jan–feb"));
+      } else { meta.textContent = t.meta; }
+      d.appendChild(meta);
+      box.appendChild(d);
+    });
+  }
+
+  /* ---------- chart ---------- */
+  var chartBox = document.getElementById("chartBox");
+
+  function chartSeries(){
+    var out=[];
+    activeChannels().forEach(function(c){
+      var s = mask(series(c, state.metric)); if(!s) return;
+      var vals = s.slice(0, lastIdx()+1);
+      if(state.indexed){
+        var base=null;
+        for(var i=0;i<vals.length;i++){ if(vals[i]!==null && vals[i]>0){ base=vals[i]; break; } }
+        vals = vals.map(function(v){ return (v===null||base===null)?null:(v/base*100); });
+      }
+      out.push({key:c, namn:CH[c].namn, color:css(CH[c].varf), vals:vals, raw:s});
+    });
+    return out;
+  }
+
+  function niceMax(m){
+    if(m<=0) return 10;
+    var mag = Math.pow(10, Math.floor(Math.log10(m)));
+    var n = m/mag;
+    var step = n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10;
+    return step*mag;
+  }
+
+  function renderChart(){
+    var S = chartSeries();
+    var W = Math.max(320, chartBox.clientWidth || 720);
+    var H = W < 560 ? 260 : 320;
+    var padL = W<560?44:56, padR=16, padT=16, padB=30;
+    var n = lastIdx()+1;
+    var innerW = W-padL-padR, innerH = H-padT-padB;
+    var step = n>1 ? innerW/(n-1) : innerW;
+
+    var max=0;
+    S.forEach(function(s){ s.vals.forEach(function(v){ if(v!==null && v>max) max=v; }); });
+    max = niceMax(max);
+
+    var x = function(i){ return padL + i*step; };
+    var y = function(v){ return padT + innerH - (v/max)*innerH; };
+
+    var svg = ['<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="presentation">'];
+    var grid = css("--line-soft"), lineC = css("--line"), t3 = css("--text-3"), t2 = css("--text-2");
+
+    for(var t=0;t<=4;t++){
+      var v = max*t/4, yy = y(v);
+      svg.push('<line x1="'+padL+'" y1="'+yy.toFixed(1)+'" x2="'+(W-padR)+'" y2="'+yy.toFixed(1)+'" stroke="'+(t===0?lineC:grid)+'" stroke-width="1"/>');
+      svg.push('<text x="'+(padL-8)+'" y="'+(yy+4).toFixed(1)+'" text-anchor="end" font-size="11" font-family="Raleway, sans-serif" fill="'+t3+'">'+(state.indexed?Math.round(v):nf.format(Math.round(v)))+'</text>');
+    }
+
+    // selected month guide
+    if(state.sel<=lastIdx()){
+      svg.push('<line x1="'+x(state.sel).toFixed(1)+'" y1="'+padT+'" x2="'+x(state.sel).toFixed(1)+'" y2="'+(padT+innerH)+'" stroke="'+css("--rbu")+'" stroke-width="1.5" stroke-dasharray="3 3" opacity=".65"/>');
+    }
+
+    for(var i=0;i<n;i++){
+      svg.push('<text x="'+x(i).toFixed(1)+'" y="'+(H-9)+'" text-anchor="middle" font-size="11.5" font-weight="'+(i===state.sel?"700":"400")+'" font-family="Raleway, sans-serif" fill="'+(i===state.sel?css("--text"):t2)+'">'+MONTHS[i]+'</text>');
+    }
+
+    S.forEach(function(s){
+      var seg=[], cur=[];
+      s.vals.forEach(function(v,i){
+        if(v===null){ if(cur.length){seg.push(cur);cur=[];} }
+        else cur.push([x(i),y(v)]);
+      });
+      if(cur.length) seg.push(cur);
+      seg.forEach(function(p){
+        if(p.length===1){
+          svg.push('<circle cx="'+p[0][0].toFixed(1)+'" cy="'+p[0][1].toFixed(1)+'" r="3.5" fill="'+s.color+'"/>');
+        } else {
+          svg.push('<polyline points="'+p.map(function(q){return q[0].toFixed(1)+","+q[1].toFixed(1);}).join(" ")+'" fill="none" stroke="'+s.color+'" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>');
+        }
+      });
+      s.vals.forEach(function(v,i){
+        if(v===null) return;
+        var isSel = i===state.sel, isEnd = i===lastIdx();
+        var r = isSel?5.5:(isEnd?4.5:3);
+        svg.push('<circle cx="'+x(i).toFixed(1)+'" cy="'+y(v).toFixed(1)+'" r="'+r+'" fill="'+(isSel||isEnd?s.color:css("--surface"))+'" stroke="'+s.color+'" stroke-width="2"/>');
+      });
+    });
+    svg.push('</svg>');
+    chartBox.innerHTML = svg.join("");
+    chartBox.__geom = {padL:padL, step:step, n:n};
+
+    var mdef = METRICS[state.metric];
+    document.getElementById("chartTitle").textContent = mdef.lab + " över tid";
+    document.getElementById("chartSub").textContent = (state.indexed ? "Index, januari = 100" : "Absoluta tal") + " · januari–augusti 2026" + (state.nojuly ? " · juli exkluderad" : "");
+
+    var lg = document.getElementById("legend"); lg.innerHTML="";
+    S.forEach(function(s){
+      var sp = el("span"); var i2 = el("i"); i2.style.background = s.color;
+      sp.appendChild(i2); sp.appendChild(document.createTextNode(s.namn)); lg.appendChild(sp);
+    });
+    if(!S.length){ lg.appendChild(el("span",null,"Inget månadsvis underlag för detta mätetal")); }
+    chartBox.setAttribute("aria-label", mdef.lab + " per månad januari till augusti 2026 för " + (S.length?S.map(function(s){return s.namn;}).join(", "):"ingen kanal") + ". Vald månad: " + MONTHS_LONG[state.sel] + ".");
+  }
+
+  function pickFromX(clientX){
+    var g = chartBox.__geom; if(!g) return;
+    var r = chartBox.getBoundingClientRect();
+    var scale = chartBox.clientWidth ? (r.width/chartBox.clientWidth) : 1;
+    var px = (clientX - r.left)/scale;
+    var i = Math.round((px - g.padL)/g.step);
+    i = Math.max(0, Math.min(lastIdx(), i));
+    if(i!==state.sel){ state.sel=i; renderChart(); renderReadout(); }
+  }
+  chartBox.addEventListener("pointermove", function(e){ pickFromX(e.clientX); });
+  chartBox.addEventListener("pointerdown", function(e){ chartBox.focus(); pickFromX(e.clientX); });
+  chartBox.addEventListener("keydown", function(e){
+    if(e.key==="ArrowRight" || e.key==="ArrowLeft"){
+      e.preventDefault();
+      state.sel = Math.max(0, Math.min(lastIdx(), state.sel + (e.key==="ArrowRight"?1:-1)));
+      renderChart(); renderReadout();
+    }
+  });
+
+  /* ---------- readout ---------- */
+  function renderReadout(){
+    var box = document.getElementById("readout"); box.innerHTML="";
+    var i = state.sel;
+    var left = el("div","r-month");
+    left.appendChild(el("div","m-name", MONTHS_LONG[i]));
+    left.appendChild(el("div","m-sub", "2026 · " + METRICS[state.metric].lab));
+    box.appendChild(left);
+
+    var right = el("div","r-body");
+    var vals = el("div","r-vals");
+    ["fb","ig","li"].forEach(function(c){
+      var s = series(c, state.metric);
+      var d = el("div","r-val");
+      d.appendChild(el("div","rv-lab", CH[c].namn));
+      var num = el("div","rv-num", s ? fmt(s[i]) : "–");
+      num.style.color = css(CH[c].varf);
+      if(!s || s[i]===null) num.style.color = css("--text-3");
+      d.appendChild(num);
+      var prev = (s && i>0 && s[i-1]!==null && s[i]!==null && s[i-1]!==0) ? (s[i]-s[i-1])/s[i-1]*100 : null;
+      var sub = el("div");
+      sub.style.fontSize=".8rem";
+      if(prev!==null){
+        var sp = el("span","delta " + (prev>1?"up":(prev<-1?"down":"flat")), pct(prev));
+        sub.appendChild(sp); sub.appendChild(document.createTextNode(" mot förra månaden"));
+      } else if(!s){ sub.textContent = "ej per månad"; sub.style.color=css("--text-3"); }
+      else if(s[i]===null){ sub.textContent = "ej tillgängligt"; sub.style.color=css("--text-3"); }
+      d.appendChild(sub);
+      vals.appendChild(d);
+    });
+    right.appendChild(vals);
+    var k = KOMMENTAR[i];
+    var c = el("div","r-comment");
+    if(k){ c.innerHTML = "<b>Expertkommentar.</b> " + k; }
+    else { c.textContent = "Januari saknar kommentar i underlaget och utgör jämförelsebas."; }
+    right.appendChild(c);
+    box.appendChild(right);
+  }
+
+  /* ---------- tables ---------- */
+  function renderTables(){
+    var box = document.getElementById("tables"); box.innerHTML="";
+    activeChannels().forEach(function(c){
+      var wrap = el("div","tbl-scroll");
+      var t = el("table");
+      var cap = el("caption");
+      var dot = el("span","dot"); dot.style.background = css(CH[c].varf);
+      cap.appendChild(dot); cap.appendChild(document.createTextNode(CH[c].namn + " · januari–augusti 2026"));
+      t.appendChild(cap);
+      var thead = el("thead"), hr = el("tr");
+      hr.appendChild(el("th","","Nyckeltal"));
+      MONTHS.forEach(function(m){ hr.appendChild(el("th","",m)); });
+      hr.appendChild(el("th","","Totalt"));
+      thead.appendChild(hr); t.appendChild(thead);
+      var tb = el("tbody");
+      METRIC_ORDER.forEach(function(mk){
+        var s = series(c, mk);
+        if(!s) return;
+        var tr = el("tr");
+        var th = el("th"); th.scope="row"; th.textContent = METRICS[mk].per[c] || METRICS[mk].lab;
+        tr.appendChild(th);
+        s.forEach(function(v,i){
+          var td = el("td", v===null?"na":"", v===null?"–":nf.format(v));
+          if(i===state.sel) td.style.background = css("--rbu-soft");
+          tr.appendChild(td);
+        });
+        tr.appendChild(mk==="rackvidd" ? el("td","tot na","–") : el("td","tot", nf.format(sum(s, MONTHS.length-1))));
+        tb.appendChild(tr);
+      });
+      t.appendChild(tb);
+      wrap.appendChild(t);
+      box.appendChild(wrap);
+    });
+  }
+
+  /* ---------- före/efter ---------- */
+  function renderCmp(){
+    var box = document.getElementById("cmp"); if(!box) return; box.innerHTML="";
+    var c = state.ch==="all" ? "fb" : state.ch;
+    document.getElementById("cmpScope").textContent = CH[c].namn;
+    document.getElementById("cmpNote").textContent =
+      "Snittvärde per månad mars–augusti" + (state.nojuly?" utan juli":"") + " jämfört med snittvärde per månad januari–februari för " + CH[c].namn +
+      ", räknat direkt från månadssiffrorna ovan. Månader utan värde i underlaget räknas inte med." +
+      (state.ch==="all" ? " Välj kanal högst upp för att byta." : "");
+    var end = lastIdx();
+    var col = css(CH[c].varf);
+    METRIC_ORDER.forEach(function(mk){
+      var s = mask(series(c, mk)); if(!s) return;
+      var pre = avg(s,0,1), post = avg(s,2,end);
+      if(pre===null || post===null) return;
+      var mx = Math.max(pre,post) || 1;
+      var row = el("div","cmp-row");
+      row.appendChild(el("div","cmp-name", METRICS[mk].per[c]));
+      var bars = el("div","cmp-bars");
+      [["Jan–feb",pre,0.35],["Mars–aug",post,1]].forEach(function(b){
+        var bar = el("div","bar");
+        bar.appendChild(el("span","tag",b[0]));
+        var track = el("div","track"), fill = el("div","fill");
+        fill.style.width = (b[1]/mx*100).toFixed(1)+"%";
+        fill.style.background = col;
+        fill.style.opacity = b[2];
+        track.appendChild(fill); bar.appendChild(track);
+        bar.appendChild(el("span","num", fmt(b[1])));
+        bars.appendChild(bar);
+      });
+      row.appendChild(bars);
+      var d = (post-pre)/pre*100;
+      var dv = el("div","cmp-delta " + (d>1?"up":(d<-1?"down":"flat")), pct(d));
+      dv.classList.add("delta");
+      row.appendChild(dv);
+      box.appendChild(row);
+    });
+  }
+
+  /* ---------- statusläge ---------- */
+  var ST = { fb:6400, ig:2401, li:676, egenLab:"Underskrifter kampanj", egenVal:1040, av:"", kommentar:"", tid:"2026-09-16T08:00:00.000Z" };
+  var stDoc = null, stLive = false;
+
+  function parseNum(s){
+    if(s===null || s===undefined) return null;
+    var t = String(s).replace(/[^\d-]/g,"");
+    if(!t.length) return null;
+    var n = parseInt(t,10);
+    return isNaN(n) ? null : n;
+  }
+  function stStampText(){
+    if(!ST.tid) return stLive
+      ? "Inga siffror inlagda ännu."
+      : "Realtidsdelning är inte tillgänglig i den här vyn. Ändringar syns bara för dig.";
+    var d = new Date(ST.tid);
+    var txt = "Uppdaterad " + d.toLocaleDateString("sv-SE",{day:"numeric",month:"short",year:"numeric"}).replace(".","");
+    if(ST.av) txt += " av " + ST.av;
+    if(ST.kommentar) txt += ". " + ST.kommentar;
+    return txt;
+  }
+  function renderStatus(){
+    var box = document.getElementById("statusCards"); box.innerHTML="";
+    var cards = [
+      {lab:"Facebook, följare totalt", val:ST.fb, col:css("--c-fb")},
+      {lab:"Instagram, följare totalt", val:ST.ig, col:css("--c-ig")},
+      {lab:"LinkedIn, följare totalt", val:ST.li, col:css("--c-li")},
+      {lab:(ST.egenLab || "Eget mått"), val:ST.egenVal, col:css("--rbu")}
+    ];
+    cards.forEach(function(c){
+      var d = el("div","kpi");
+      d.appendChild(el("div","k-lab",c.lab));
+      var v = el("div","k-val", c.val===null||c.val===undefined ? "–" : nf.format(c.val));
+      v.style.setProperty("--kc", c.val===null||c.val===undefined ? css("--text-3") : c.col);
+      d.appendChild(v);
+      d.appendChild(el("div","k-stamp", c.val===null||c.val===undefined ? "Fylls i vid nästa avstämning" : "Totalt antal, senaste avstämning"));
+      box.appendChild(d);
+    });
+    var pill = document.getElementById("statusPill");
+    if(pill) pill.textContent = "Avläst 16 sep 2026";
+  }
+  /* ---------- export ---------- */
+  var EX ={ ch:{fb:true,ig:true,li:true}, months:MONTHS.map(function(){ return true; }), met:{}, layout:"months" };
+  METRIC_ORDER.forEach(function(m){ EX.met[m]=true; });
+
+  var expMonthsBox = document.getElementById("expMonths");
+  MONTHS.forEach(function(m,i){
+    var b = el("button","chip sm",MONTHS_LONG[i]);
+    b.type="button"; b.setAttribute("aria-pressed","true"); b.dataset.m=String(i);
+    b.addEventListener("click", function(){
+      EX.months[i] = !EX.months[i];
+      b.setAttribute("aria-pressed", String(EX.months[i]));
+      renderExport();
+    });
+    expMonthsBox.appendChild(b);
+  });
+  function syncMonthChips(){
+    Array.prototype.forEach.call(expMonthsBox.children, function(b,i){
+      b.setAttribute("aria-pressed", String(EX.months[i]));
+    });
+  }
+
+  function expSelection(){
+    var chs = ["fb","ig","li"].filter(function(c){ return EX.ch[c]; });
+    var mets = METRIC_ORDER.filter(function(m){ return EX.met[m]; });
+    var months = [];
+    for(var i=0;i<MONTHS.length;i++){ if(EX.months[i]) months.push(i); }
+    var pairs = [];
+    chs.forEach(function(c){
+      mets.forEach(function(m){ if(series(c,m)) pairs.push({ch:c, met:m}); });
+    });
+    return {chs:chs, mets:mets, months:months, pairs:pairs};
+  }
+
+  function buildTable(){
+    var s = expSelection();
+    if(!s.pairs.length || !s.months.length) return null;
+    var head=[], rows=[];
+    if(EX.layout==="months"){
+      head = ["Månad"].concat(s.pairs.map(function(p){
+        return CH[p.ch].namn + " – " + (METRICS[p.met].per[p.ch] || METRICS[p.met].lab);
+      }));
+      s.months.forEach(function(i){
+        var r = [MONTHS_LONG[i] + " 2026"];
+        s.pairs.forEach(function(p){
+          var v = series(p.ch,p.met)[i];
+          r.push(v===null||v===undefined ? null : v);
+        });
+        rows.push(r);
+      });
+    } else {
+      head = ["Kanal","Nyckeltal"].concat(s.months.map(function(i){ return MONTHS_LONG[i]; })).concat(["Summa valda månader"]);
+      s.pairs.forEach(function(p){
+        var ser = series(p.ch,p.met);
+        var r = [CH[p.ch].namn, METRICS[p.met].per[p.ch] || METRICS[p.met].lab];
+        var tot=0, any=false;
+        s.months.forEach(function(i){
+          var v = ser[i];
+          if(v===null||v===undefined){ r.push(null); }
+          else { r.push(v); tot+=v; any=true; }
+        });
+        r.push((any && p.met!=="rackvidd") ? tot : null);
+        rows.push(r);
+      });
+    }
+    return {head:head, rows:rows};
+  }
+
+  function csvCell(v){
+    if(v===null||v===undefined) return "";
+    var s = String(v);
+    return /[";\n]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+  }
+  function toCsv(t){
+    return [t.head.map(csvCell).join(";")].concat(t.rows.map(function(r){ return r.map(csvCell).join(";"); })).join("\r\n");
+  }
+  function fileName(){
+    var s = expSelection();
+    var part = s.months.length ? (MONTHS[s.months[0]] + (s.months.length>1 ? "-" + MONTHS[s.months[s.months.length-1]] : "")) : "urval";
+    var chp = s.chs.length===3 ? "alla" : s.chs.join("-");
+    return ("RBU_" + part + "_2026_" + chp + ".csv").toLowerCase().replace(/å/g,"a").replace(/ä/g,"a").replace(/ö/g,"o");
+  }
+
+  var statusEl = document.getElementById("expStatus");
+  function status(msg, kind){
+    statusEl.textContent = msg || "";
+    statusEl.className = "exp-status" + (kind ? " " + kind : "");
+  }
+
+  function renderExport(){
+    var t = buildTable();
+    var box = document.getElementById("previewBox");
+    var meta = document.getElementById("expMeta");
+    var raw = document.getElementById("expRaw");
+    box.innerHTML="";
+    if(!t){
+      var p = el("p",null,"Välj minst en kanal, en månad och ett nyckeltal.");
+      p.style.padding="16px"; p.style.color=css("--text-3");
+      box.appendChild(p);
+      meta.textContent=""; raw.value="";
+      document.getElementById("expDownload").disabled = true;
+      document.getElementById("expCopy").disabled = true;
+      return;
+    }
+    document.getElementById("expDownload").disabled = false;
+    document.getElementById("expCopy").disabled = false;
+
+    var tbl = el("table"), thead = el("thead"), hr = el("tr");
+    t.head.forEach(function(h){ var th=el("th","",h); th.scope="col"; hr.appendChild(th); });
+    thead.appendChild(hr); tbl.appendChild(thead);
+    var tb = el("tbody");
+    var shown = t.rows.slice(0,10);
+    shown.forEach(function(r){
+      var tr = el("tr");
+      r.forEach(function(v,i){
+        if(i===0){ var th=el("th","",String(v)); th.scope="row"; tr.appendChild(th); }
+        else if(i===1 && EX.layout==="metrics"){ tr.appendChild(el("td","",String(v))); }
+        else tr.appendChild(el("td", v===null?"na":"", v===null?"–":nf.format(v)));
+      });
+      tb.appendChild(tr);
+    });
+    tbl.appendChild(tb); box.appendChild(tbl);
+
+    meta.textContent = t.rows.length + (t.rows.length===1?" rad":" rader") + " · " + t.head.length + " kolumner" +
+      (t.rows.length>shown.length ? " · visar de " + shown.length + " första" : "");
+    raw.value = toCsv(t);
+  }
+
+  var dl = null;
+  document.getElementById("expDownload").addEventListener("click", function(){
+    var t = buildTable(); if(!t || !dl) return;
+    status("Skapar filen …");
+    dl.save({filename:fileName(), data:"﻿" + toCsv(t)}).then(function(){
+      status("Filen är nedladdad.","ok");
+    }).catch(function(err){
+      var code = err && err.code;
+      if(code==="declined") status("Nedladdningen avbröts.");
+      else if(code==="rate_limited") status("En nedladdning pågår redan. Försök igen om en stund.","err");
+      else status("Nedladdning fungerar inte i den här vyn. Använd Kopiera tabellen i stället.","err");
+    });
+  });
+
+  document.getElementById("expCopy").addEventListener("click", function(){
+    var t = buildTable(); if(!t) return;
+    var text = t.head.join("\t") + "\n" + t.rows.map(function(r){
+      return r.map(function(v){ return v===null?"":String(v); }).join("\t");
+    }).join("\n");
+    var done = function(){ status("Tabellen är kopierad. Klistra in i Excel eller Google Kalkylark.","ok"); };
+    var fail = function(){
+      var ta = document.getElementById("expRaw");
+      ta.closest("details").open = true;
+      ta.focus(); ta.select();
+      status("Kopiera med Ctrl+C eller Cmd+C. Texten är markerad.","");
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(fail);
+    } else fail();
+  });
+
+  /* ---------- PDF och PowerPoint ---------- */
+  function docTable(){
+    var saved = EX.layout;
+    EX.layout = "metrics";
+    var t = buildTable();
+    EX.layout = saved;
+    return t;
+  }
+  function periodText(){
+    var s = expSelection();
+    if(!s.months.length) return "";
+    return MONTHS_LONG[s.months[0]] + (s.months.length>1 ? "–" + MONTHS_LONG[s.months[s.months.length-1]].toLowerCase() : "") + " 2026";
+  }
+  function cellText(v){ return (v===null||v===undefined) ? "–" : nf.format(v); }
+
+  function buildPdfBlob(t){
+    var jsPDF = window.jspdf && window.jspdf.jsPDF;
+    if(!jsPDF) return null;
+    var doc = new jsPDF({orientation:"landscape", unit:"mm", format:"a4"});
+    var W = 297, M = 12, y = 18;
+
+    doc.setFont("helvetica","bold"); doc.setFontSize(18); doc.setTextColor(28,28,26);
+    doc.text("Helhetsrapport RBU", M, y);
+    doc.setFont("helvetica","bold"); doc.setTextColor(225,58,17);
+    doc.text(periodText(), M, y+8);
+    doc.setFont("helvetica","normal"); doc.setFontSize(9.5); doc.setTextColor(92,90,84);
+    doc.text("Facebook, Instagram och LinkedIn · sammanställning för teamet", M, y+15);
+
+    var top = y+24;
+    var nCols = t.head.length;
+    var w0 = 26, w1 = 48;
+    var rest = (W - 2*M - w0 - w1) / (nCols - 2);
+    var colW = [w0, w1]; for(var i=2;i<nCols;i++) colW.push(rest);
+    var xs = [M]; for(var j=0;j<nCols-1;j++) xs.push(xs[j] + colW[j]);
+    var rowH = 7.2;
+
+    function header(yy){
+      doc.setFont("helvetica","bold"); doc.setFontSize(7.5); doc.setTextColor(132,129,122);
+      t.head.forEach(function(h,k){
+        doc.text(String(h), k<2 ? xs[k] : xs[k]+colW[k]-1.5, yy, {align: k<2 ? "left" : "right", maxWidth: colW[k]-2});
+      });
+      doc.setDrawColor(223,219,211); doc.line(M, yy+2, W-M, yy+2);
+    }
+    header(top);
+    var yy = top + 7;
+    doc.setFontSize(8.5);
+    t.rows.forEach(function(r){
+      if(yy > 196){ doc.addPage(); yy = 24; header(18); yy = 25; }
+      r.forEach(function(v,k){
+        if(k===0){ doc.setFont("helvetica","bold"); doc.setTextColor(28,28,26); doc.text(String(v), xs[k], yy, {maxWidth:colW[k]-2}); }
+        else if(k===1){ doc.setFont("helvetica","normal"); doc.setTextColor(28,28,26); doc.text(String(v), xs[k], yy, {maxWidth:colW[k]-2}); }
+        else {
+          doc.setFont("helvetica", k===t.head.length-1 ? "bold" : "normal");
+          doc.setTextColor(v===null?132:34, v===null?129:34, v===null?122:31);
+          doc.text(cellText(v), xs[k]+colW[k]-1.5, yy, {align:"right"});
+        }
+      });
+      doc.setDrawColor(235,231,224); doc.line(M, yy+2.2, W-M, yy+2.2);
+      yy += rowH;
+    });
+
+    doc.setFont("helvetica","normal"); doc.setFontSize(7.5); doc.setTextColor(132,129,122);
+    doc.text("Räckvidd och unika visningar summeras inte, eftersom samma person kan nås under flera månader.", M, 200);
+    doc.text("Källor: Meta Business Suite, LinkedIn Analytics-export, Later · RBU, intern rapport", M, 204);
+    return doc.output("blob");
+  }
+
+  function buildPptxBlob(t){
+    if(!window.PptxGenJS) return null;
+    var pptx = new window.PptxGenJS();
+    pptx.layout = "LAYOUT_WIDE";
+    pptx.title = "Helhetsrapport RBU";
+
+    var s1 = pptx.addSlide();
+    s1.background = {color:"1C1C1A"};
+    s1.addText("RAPPORT OCH INSIKTER", {x:0.7, y:2.6, w:9, h:0.3, isTextBox:true, margin:0, fontFace:"Calibri", fontSize:12, bold:true, charSpacing:2, color:"A9A69E"});
+    s1.addText("Helhetsrapport RBU", {x:0.7, y:3.0, w:11, h:0.8, isTextBox:true, margin:0, fontFace:"Cambria", fontSize:40, bold:true, color:"F2EFE9"});
+    s1.addText(periodText(), {x:0.7, y:3.85, w:11, h:0.8, isTextBox:true, margin:0, fontFace:"Cambria", fontSize:40, bold:true, color:"E13A11"});
+    s1.addText("Sammanställning för teamet", {x:0.7, y:4.8, w:11, h:0.4, isTextBox:true, margin:0, fontFace:"Calibri", fontSize:15, color:"A9A69E"});
+
+    var s2 = pptx.addSlide();
+    s2.addText("Nyckeltal per månad", {x:0.7, y:0.45, w:11.9, h:0.6, isTextBox:true, margin:0, fontFace:"Cambria", fontSize:32, bold:true, color:"1C1C1A"});
+    s2.addText(periodText() + " · valt urval", {x:0.7, y:1.08, w:11.9, h:0.4, isTextBox:true, margin:0, fontFace:"Calibri", fontSize:13, color:"5C5A54"});
+
+    var rows = [t.head.map(function(h,k){
+      return {text:String(h), options:{bold:true, color:"84817A", fontSize:10, align: k<2 ? "left" : "right"}};
+    })];
+    t.rows.forEach(function(r){
+      rows.push(r.map(function(v,k){
+        if(k<2) return {text:String(v), options:{fontSize:11, bold:k===0, color:"1C1C1A"}};
+        return {text:cellText(v), options:{fontSize:11, align:"right", color: v===null ? "84817A" : "1C1C1A", bold:k===t.head.length-1}};
+      }));
+    });
+    var n = t.head.length, w0 = 1.5, w1 = 2.6, rest = (11.9 - w0 - w1)/(n-2);
+    var colW = [w0, w1]; for(var i=2;i<n;i++) colW.push(rest);
+    s2.addTable(rows, {
+      x:0.7, y:1.75, w:11.9, colW:colW, fontFace:"Calibri",
+      border:{type:"solid", color:"DFDBD3", pt:0.5}, rowH:0.32, valign:"middle", margin:5, autoPage:true
+    });
+    s2.addText("Räckvidd och unika visningar summeras inte, eftersom samma person kan nås under flera månader. Källor: Meta Business Suite, LinkedIn Analytics-export, Later.",
+      {x:0.7, y:6.75, w:11.9, h:0.4, isTextBox:true, margin:0, fontFace:"Calibri", fontSize:9, color:"84817A"});
+
+    return pptx.write({outputType:"blob"});
+  }
+
+  function saveFile(name, data){
+    if(!dl) return;
+    status("Skapar filen …");
+    dl.save({filename:name, data:data}).then(function(){
+      status("Filen är nedladdad.","ok");
+    }).catch(function(err){
+      var code = err && err.code;
+      if(code==="declined") status("Nedladdningen avbröts.");
+      else if(code==="rate_limited") status("En nedladdning pågår redan. Försök igen om en stund.","err");
+      else status("Nedladdning fungerar inte i den här vyn.","err");
+    });
+  }
+  function baseName(){ return fileName().replace(/\.csv$/,""); }
+
+  document.getElementById("expPdf").addEventListener("click", function(){
+    var t = docTable(); if(!t) return;
+    try {
+      var blob = buildPdfBlob(t);
+      if(!blob){ status("PDF-funktionen kunde inte läsas in.","err"); return; }
+      saveFile(baseName() + ".pdf", blob);
+    } catch(e){ status("Det gick inte att skapa PDF:en.","err"); }
+  });
+
+  document.getElementById("expPptx").addEventListener("click", function(){
+    var t = docTable(); if(!t) return;
+    status("Skapar PowerPoint …");
+    try {
+      var pr = buildPptxBlob(t);
+      if(!pr){ status("PowerPoint-funktionen kunde inte läsas in.","err"); return; }
+      Promise.resolve(pr).then(function(blob){
+        saveFile(baseName() + ".pptx", blob);
+      }).catch(function(){ status("Det gick inte att skapa PowerPoint-filen.","err"); });
+    } catch(e){ status("Det gick inte att skapa PowerPoint-filen.","err"); }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".exp-ch"), function(c){
+    c.addEventListener("change", function(){ EX.ch[c.value]=c.checked; renderExport(); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".exp-met"), function(c){
+    c.addEventListener("change", function(){ EX.met[c.value]=c.checked; renderExport(); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="explayout"]'), function(r){
+    r.addEventListener("change", function(){ if(r.checked){ EX.layout=r.value; renderExport(); } });
+  });
+  document.getElementById("expAllM").addEventListener("click", function(){
+    EX.months = EX.months.map(function(){ return true; }); syncMonthChips(); renderExport();
+  });
+  document.getElementById("expNoM").addEventListener("click", function(){
+    EX.months = EX.months.map(function(){ return false; }); syncMonthChips(); renderExport();
+  });
+
+  (function(){
+    var boot = function(d){
+      if(!d) return;
+      dl = d;
+      document.getElementById("expDownload").hidden = false;
+      var okPdf = !!(window.jspdf && window.jspdf.jsPDF), okPptx = !!window.PptxGenJS;
+      if(okPdf) document.getElementById("expPdf").hidden = false;
+      if(okPptx) document.getElementById("expPptx").hidden = false;
+      if(!okPdf || !okPptx){
+        status((!okPdf && !okPptx ? "PDF och PowerPoint" : (!okPdf ? "PDF" : "PowerPoint")) +
+          " kunde inte läsas in i den här vyn. CSV fungerar som vanligt.");
+      }
+    };
+    var shim = {
+      save: function(req){
+        return new Promise(function(res, rej){
+          try{
+            var blob = (req.data instanceof Blob) ? req.data
+              : new Blob([req.data], {type:"text/csv;charset=utf-8"});
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url; a.download = req.filename;
+            document.body.appendChild(a); a.click();
+            document.body.removeChild(a);
+            setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+            res({status:"saved"});
+          }catch(e){ rej({code:"unavailable", message:String(e)}); }
+        });
+      }
+    };
+    if(document.readyState === "complete") boot(shim);
+    else window.addEventListener("load", function(){ boot(shim); });
+  })();
+
+  /* ---------- wiring ---------- */
+  function renderAll(){ renderStatus(); renderKpis(); renderChart(); renderReadout(); renderTables(); renderCmp(); renderExport(); }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".chip[data-ch]"), function(b){
+    b.addEventListener("click", function(){
+      state.ch = b.dataset.ch;
+      Array.prototype.forEach.call(document.querySelectorAll(".chip[data-ch]"), function(o){
+        o.setAttribute("aria-pressed", String(o===b));
+      });
+      renderAll();
+    });
+  });
+  document.getElementById("metric").addEventListener("change", function(e){ state.metric = e.target.value; renderAll(); });
+  document.getElementById("indexed").addEventListener("change", function(e){ state.indexed = e.target.checked; renderChart(); });
+  document.getElementById("nojuly").addEventListener("change", function(e){
+    state.nojuly = e.target.checked;
+    if(state.sel > lastIdx()) state.sel = lastIdx();
+    renderAll();
+  });
+
+  var rt;
+  window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(renderChart, 120); });
+  if(window.ResizeObserver){ new ResizeObserver(function(){ clearTimeout(rt); rt = setTimeout(renderChart, 120); }).observe(chartBox); }
+  if(window.matchMedia){
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if(mq.addEventListener) mq.addEventListener("change", renderAll);
+  }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ renderChart(); }); }
+
+  renderAll();
+})();
+</script>
+
+</body>
+</html>
