@@ -145,6 +145,24 @@ select{
 }
 .switch{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:var(--text-2);cursor:pointer;user-select:none}
 .switch input{accent-color:var(--rbu);width:16px;height:16px;cursor:pointer}
+.hint{
+  position:relative;display:inline-grid;place-items:center;flex:none;
+  width:17px;height:17px;border-radius:50%;margin-left:5px;cursor:help;
+  border:1px solid var(--line);background:var(--surface);color:var(--text-3);
+  font-size:.68rem;font-weight:700;line-height:1;font-style:normal;
+}
+.hint:hover{border-color:var(--text-3);color:var(--text-2)}
+.hint::after{
+  content:attr(data-tip);
+  position:absolute;top:calc(100% + 9px);left:50%;transform:translateX(-50%);
+  width:270px;max-width:72vw;z-index:40;
+  background:var(--dark-ground);color:var(--on-dark);
+  font-size:.82rem;font-weight:400;line-height:1.45;text-align:left;
+  padding:10px 12px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.22);
+  opacity:0;visibility:hidden;transition:opacity .12s;pointer-events:none;
+}
+.hint:hover::after,.hint:focus::after,.hint:focus-visible::after{opacity:1;visibility:visible}
+@media (max-width:520px){ .hint::after{left:auto;right:0;transform:none} }
 
 /* ---------- sections ---------- */
 section{padding-block:38px;scroll-margin-top:76px}
@@ -367,8 +385,8 @@ footer b{color:var(--on-dark);font-weight:600}
       </select>
     </div>
     <div class="ctrl-group">
-      <label class="switch"><input type="checkbox" id="indexed"> Index (jan = 100)</label>
-      <label class="switch"><input type="checkbox" id="nojuly"> Räkna bort juli</label>
+      <label class="switch"><input type="checkbox" id="indexed"> Index (jan = 100)</label><span class="hint" tabindex="0" role="note" aria-label="Vad index betyder: januari sätts till 100 för varje kanal och övriga månader räknas om mot den. 200 är dubbelt så mycket som i januari. Gör att små och stora kanaler kan jämföras." data-tip="Januari sätts till 100 för varje kanal, övriga månader räknas om mot den. 200 betyder dubbelt så mycket som i januari. Bra för att jämföra hur snabbt kanalerna växer, oavsett storlek.">i</span>
+      <label class="switch"><input type="checkbox" id="nojuly"> Räkna bort juli (kansliet stängt)</label>
     </div>
   </div>
 </div>
@@ -475,11 +493,6 @@ footer b{color:var(--on-dark);font-weight:600}
     <p class="sec-note" style="margin-top:18px">Streck betyder att talet saknas i underlaget.</p>
   </section>
 
-  <section id="fore-efter">
-    <div class="sec-head"><h2>Före och efter mars</h2><span class="pill" id="cmpScope">Facebook</span></div>
-    <p class="sec-note" id="cmpNote">Snitt per månad mars–augusti mot januari–februari.</p>
-    <div class="cmp" id="cmp"></div>
-  </section>
 
   <section id="minuter">
     <div class="sec-head"><h2>Maj–juni: kampanjen Minuter tar fart</h2></div>
@@ -508,15 +521,17 @@ footer b{color:var(--on-dark);font-weight:600}
   </section>
 
   <section id="linkedin-tillvaxt">
-    <div class="sec-head"><h2>LinkedIn: följare och besök</h2></div>
-        <div class="metrics4">
-      <div class="kpi"><div class="k-lab">Följare totalt</div><div class="k-val" style="--kc:var(--c-li)">675</div><div class="k-meta">16 september 2026 · 656 den 31 juli</div></div>
-      <div class="kpi"><div class="k-lab">Nya följare</div><div class="k-val" style="--kc:var(--c-li)">97</div><div class="k-meta">januari–juli 2026</div></div>
-      <div class="kpi"><div class="k-lab">Sidvisningar</div><div class="k-val" style="--kc:var(--c-li)">399</div><div class="k-meta">januari–juli 2026</div></div>
-      <div class="kpi"><div class="k-lab">Unika besökare</div><div class="k-val" style="--kc:var(--c-li)">194</div><div class="k-meta">januari–juli 2026</div></div>
+    <div class="sec-head"><h2>LinkedIn: perioden i sin helhet</h2></div>
+    <p class="sec-note">Avläst direkt för 1 januari till 31 augusti, inte hopräknat från månaderna.</p>
+    <div class="metrics4">
+      <div class="kpi"><div class="k-lab">Följare totalt</div><div class="k-val" style="--kc:var(--c-li)">676</div><div class="k-meta">16 september 2026</div></div>
+      <div class="kpi"><div class="k-lab">Medlemmar nådda</div><div class="k-val" style="--kc:var(--c-li)">8 586</div><div class="k-meta">unika personer, januari–augusti</div></div>
+      <div class="kpi"><div class="k-lab">Klick</div><div class="k-val" style="--kc:var(--c-li)">983</div><div class="k-meta">januari–augusti</div></div>
+      <div class="kpi"><div class="k-lab">Engagemangsfrekvens</div><div class="k-val" style="--kc:var(--c-li)">9,8 %</div><div class="k-meta">snitt januari–augusti</div></div>
     </div>
-    <p class="sec-note" style="margin-top:16px"><b>Senaste 30 dagarna, avläst 13 september:</b> 18 nya följare, 47 sidvisningar, 28 unika besökare.</p>
-    <p class="sec-note" style="margin-top:10px">Följarna finns främst i Stockholm, 310 av 675, följt av Malmö 57 och Göteborg 45. Av besöken januari till juli skedde 239 via mobil och 160 via dator.</p>
+    <p class="sec-note" style="margin-top:16px">Periodens visningar är 15 356 och interaktionerna 519, varav 496 reaktioner, 9 kommentarer och 14 ompubliceringar. LinkedIns egna periodtal ligger något under summan av månaderna i tabellen ovan, eftersom plattformen räknar om över hela intervallet.</p>
+    <p class="sec-note" style="margin-top:10px">Besök på sidan är ännu bara avlästa för januari till juli: 399 sidvisningar och 194 unika besökare, varav 239 via mobil och 160 via dator. Nya följare under samma period: 97.</p>
+    <p class="sec-note" style="margin-top:10px">Av samtliga 676 följare finns 310 i Stockholmsområdet, 57 i Malmö och 45 i Göteborg. Det beskriver följarskaran som helhet, inte de som tillkom under perioden.</p>
   </section>
 
   <section id="slutsats">
@@ -529,7 +544,7 @@ footer b{color:var(--on-dark);font-weight:600}
       </div>
       <div class="card">
         <h3>Ett trendskifte, inte en topp</h3>
-        <p>Uppgången sträcker sig över flera månader i rad, inte en enskild viral händelse. Snittet mars till augusti ligger 220 % över snittet januari till februari. Augustitoppen kring den 16:e syns samtidigt på alla tre kanaler och är värd att kartlägga inlägg för inlägg.</p>
+        <p>Uppgången sträcker sig över flera månader i rad, inte en enskild viral händelse. Snittet mars till augusti ligger 220 % över snittet januari till februari.</p>
       </div>
       <div class="card">
         <h3>Juli är inte ett trendbrott</h3>
@@ -560,10 +575,6 @@ footer b{color:var(--on-dark);font-weight:600}
       <div class="card">
         <h3>Nya följare</h3>
         <p>Om räckvidden bygger något som består. En följare går att nå igen nästa månad, utan att det kostar något.</p>
-      </div>
-      <div class="card dark-card">
-        <h3>Det vi inte mäter</h3>
-        <p>Vad synligheten leder till utanför plattformarna: besök på rbu.se, intresseanmälningar och nya medlemmar. Det kräver en egen uppföljning och är nästa steg.</p>
       </div>
     </div>
   </section>
@@ -921,7 +932,7 @@ footer b{color:var(--on-dark);font-weight:600}
 
   /* ---------- före/efter ---------- */
   function renderCmp(){
-    var box = document.getElementById("cmp"); box.innerHTML="";
+    var box = document.getElementById("cmp"); if(!box) return; box.innerHTML="";
     var c = state.ch==="all" ? "fb" : state.ch;
     document.getElementById("cmpScope").textContent = CH[c].namn;
     document.getElementById("cmpNote").textContent =
@@ -959,7 +970,7 @@ footer b{color:var(--on-dark);font-weight:600}
   }
 
   /* ---------- statusläge ---------- */
-  var ST = { fb:6400, ig:2399, li:675, egenLab:"", egenVal:null, av:"", kommentar:"", tid:"2026-09-16T08:00:00.000Z" };
+  var ST = { fb:6400, ig:2401, li:676, egenLab:"Underskrifter kampanj", egenVal:1040, av:"", kommentar:"", tid:"2026-09-16T08:00:00.000Z" };
   var stDoc = null, stLive = false;
 
   function parseNum(s){
