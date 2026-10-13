@@ -368,6 +368,7 @@ footer b{color:var(--on-dark);font-weight:600}
         <div class="sf-field"><label for="sf-fb">Facebook, följare</label><input type="text" inputmode="numeric" id="sf-fb"></div>
         <div class="sf-field"><label for="sf-ig">Instagram, följare</label><input type="text" inputmode="numeric" id="sf-ig"></div>
         <div class="sf-field"><label for="sf-li">LinkedIn, följare</label><input type="text" inputmode="numeric" id="sf-li"></div>
+        <div class="sf-field"><label for="sf-ns">Namnunderskrifter, lagförslaget</label><input type="text" inputmode="numeric" id="sf-ns"></div>
         <div class="sf-field"><label for="sf-av">Uppdaterad av</label><input type="text" id="sf-av" placeholder="Ditt namn"></div>
       </div>
       <div class="sf-field" style="margin-top:14px"><label for="sf-kommentar">Kommentar</label><input type="text" id="sf-kommentar" placeholder="Valfri notering, till exempel avläst i Meta Business Suite och Mailchimp"></div>
@@ -1046,6 +1047,8 @@ footer b{color:var(--on-dark);font-weight:600}
     document.getElementById("sf-ig").value = ST.ig===null?"":ST.ig;
     document.getElementById("sf-li").value = ST.li===null?"":ST.li;
     document.getElementById("sf-av").value = ST.av||"";
+    var nsv = (NS.totalt!==null&&NS.totalt!==undefined) ? NS.totalt : ST.egenVal;
+    document.getElementById("sf-ns").value = (nsv===null||nsv===undefined) ? "" : nsv;
     document.getElementById("sf-kommentar").value = ST.kommentar||"";
   }
   function toggleStatusForm(open){
@@ -1065,18 +1068,25 @@ footer b{color:var(--on-dark);font-weight:600}
       ig: parseNum(document.getElementById("sf-ig").value),
       li: parseNum(document.getElementById("sf-li").value),
       egenLab: ST.egenLab || "",
-      egenVal: ST.egenVal,
+      egenVal: parseNum(document.getElementById("sf-ns").value),
       av: document.getElementById("sf-av").value.trim().slice(0,60),
       kommentar: document.getElementById("sf-kommentar").value.trim().slice(0,300),
       tid: new Date().toISOString()
     };
     var msg = document.getElementById("statusMsg");
+    var nsChanged = next.egenVal !== null && next.egenVal !== NS.totalt;
+    var nsNext = {};
+    Object.keys(NS).forEach(function(k){ nsNext[k] = NS[k]; });
+    if(nsChanged){ nsNext.totalt = next.egenVal; nsNext.av = next.av || NS.av || ""; nsNext.tid = next.tid; }
     if(!stDoc){
-      ST = next; renderStatus(); toggleStatusForm(false);
+      ST = next; if(nsChanged){ NS = nsNext; renderNS(); }
+      renderStatus(); toggleStatusForm(false);
       return;
     }
     msg.className="exp-status"; msg.textContent="Sparar …";
-    stDoc.set(next).then(function(){
+    var saves = [stDoc.set(next)];
+    if(nsChanged && nsDoc) saves.push(nsDoc.set(nsNext));
+    Promise.all(saves).then(function(){
       msg.textContent=""; toggleStatusForm(false);
     }).catch(function(err){
       msg.className="exp-status err";
