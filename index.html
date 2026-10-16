@@ -515,7 +515,7 @@ footer b{color:var(--on-dark);font-weight:600}
       <button type="button" class="btn btn-ghost" id="nsEdit">Uppdatera namninsamlingen</button>
       <span class="exp-status" id="nsStamp"></span>
     </div>
-    <p class="sec-note" style="margin-top:14px">Namninsamlingen är kampanjens tydligaste resultat utanför sociala medier: människor som har tagit ställning med sitt namn. Ungefär 40 % av alla underskrifter har kommit in under de senaste tre månaderna, samma period som topparna i augusti och september.</p>
+    <p class="sec-note" style="margin-top:14px">Namninsamlingen är kampanjens tydligaste resultat utanför sociala medier: människor som har tagit ställning med sitt namn. <span id="nsAndelText">Ungefär 40 % av alla underskrifter har kommit in under de senaste tre månaderna</span>, samma period som topparna i augusti och september.</p>
     <div class="grid2">
       <div class="card">
         <span class="pill">Bästa innehållet</span>
@@ -566,7 +566,7 @@ footer b{color:var(--on-dark);font-weight:600}
 
   <section id="slutsats">
     <div class="sec-head"><h2>Samlad slutsats</h2></div>
-    <p class="sec-note">Perioden visar en låg men stabil bas under vårens första månader, en gradvis acceleration från april, ett kraftigt uppsving i maj–juni och, efter sommarens driftsuppehåll, en ny och ännu högre topp i augusti. September landade lägre men långt över vårens nivå. Mönstret återkommer på alla tre kanaler, vilket gör det till mer än en tillfällighet. Effekten syns också utanför kanalerna: Minuter-sidan är den näst mest besökta sidan på rbu.se, och namninsamlingen har närmare 1 200 underskrifter.</p>
+    <p class="sec-note">Perioden visar en låg men stabil bas under vårens första månader, en gradvis acceleration från april, ett kraftigt uppsving i maj–juni och, efter sommarens driftsuppehåll, en ny och ännu högre topp i augusti. September landade lägre men långt över vårens nivå. Mönstret återkommer på alla tre kanaler, vilket gör det till mer än en tillfällighet. Effekten syns också utanför kanalerna: Minuter-sidan är den näst mest besökta sidan på rbu.se, och namninsamlingen har <span id="nsSlutsats">över 1 250</span> underskrifter.</p>
     <div class="grid3">
       <div class="card">
         <h3>Kanalerna spelar olika roller</h3>
@@ -1001,7 +1001,7 @@ footer b{color:var(--on-dark);font-weight:600}
   }
 
   /* ---------- statusläge ---------- */
-  var ST = { fb:6400, ig:2440, li:686, egenLab:"", egenVal:1187, av:"", kommentar:"", tid:"2026-09-10T08:00:00.000Z" };
+  var ST = { fb:6400, ig:2467, li:686, egenLab:"", egenVal:1254, av:"", kommentar:"", tid:"2026-10-16T13:42:39.799Z" };
   var stDoc = null, stLive = false;
 
   function parseNum(s){
@@ -1098,7 +1098,7 @@ footer b{color:var(--on-dark);font-weight:600}
 
 
   /* ---------- namninsamlingen ---------- */
-  var NS = { totalt:1187, andel:16, netto:160, nya:484, epost:1174, av:"", tid:"2026-10-02T08:00:00.000Z" };
+  var NS = { totalt:1254, andel:16, netto:160, nya:484, epost:1174, av:"", tid:"2026-10-16T13:42:39.799Z" };
   var nsDoc = null;
   function renderNS(){
     var box = document.getElementById("nsCards"); box.innerHTML="";
@@ -1129,6 +1129,14 @@ footer b{color:var(--on-dark);font-weight:600}
       if(NS.av) txt += " av " + NS.av;
     }
     document.getElementById("nsStamp").textContent = txt + (nsDoc ? "" : (txt ? ". " : "") + "Ändringar syns bara för dig i den här vyn.");
+    if(NS.totalt){
+      var fl = Math.floor(NS.totalt/50)*50;
+      document.getElementById("nsSlutsats").textContent = (NS.totalt===fl ? "" : "över ") + nf.format(fl);
+      if(NS.nya){
+        var andel = Math.round(NS.nya/NS.totalt*100);
+        document.getElementById("nsAndelText").textContent = "Ungefär " + andel + " % av alla underskrifter har kommit in under de senaste tre månaderna";
+      }
+    }
     document.getElementById("nsStampTop").textContent = "Från Mailchimp, listan för valkampanjens namnunderskrifter" + (NS.tid ? ", avläst " + new Date(NS.tid).toLocaleDateString("sv-SE",{day:"numeric",month:"long",year:"numeric"}) : "") + ".";
   }
   function nsToggle(open){
